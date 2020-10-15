@@ -170,3 +170,16 @@ do
         percent8="$(( $count8 * 100 / $n2 ))"
 
       fi
+   triplet[0]="HHH:$percent1"
+   triplet[1]="HHT:$percent2"
+   triplet[2]="HTH:$percent3"
+   triplet[3]="HTT:$percent4"
+   triplet[4]="THH:$percent5"
+   triplet[5]="THT:$percent6"
+   triplet[6]="TTH:$percent7"
+   triplet[7]="TTT:$percent8"
+
+done
+
+echo "triplets outcomes in percentages are ==> : "
+echo ${triplet[@]}
