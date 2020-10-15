@@ -183,3 +183,40 @@ done
 
 echo "triplets outcomes in percentages are ==> : "
 echo ${triplet[@]}
+
+
+#to sort singlet,doblet,triplet combination
+declare -A sort_combination
+maximum=0
+temp=0
+
+echo "enter a number to flip coins"
+read n3
+for((index=0; index<$n3; index++))
+do
+   for((coinindex=0; coinindex<4; coinindex++))
+   do
+      r4=$(($RANDOM%2))
+         if [ $r4 -eq 0 ]
+         then
+            coinside+=H
+         else
+            coinside+=T
+         fi
+    done
+sort_combination[$coinside]="$((${sort_combination[$coinside]}+1))"
+done
+echo "${sort_combination[@]}"
+
+for j in ${!sort_combination[@]}
+do
+   sort_combination[$j]="$(( ${sort_combination[$j]} * 100 / $n2 ))"
+   temp="${sort_combination[$j]}"
+      if (( $temp -ge $maximum ))
+      then
+         maximum=$temp
+         new=$j
+      fi
+done
+echo "maximum winning combination is $maximum"
+
