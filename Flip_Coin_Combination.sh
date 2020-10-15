@@ -93,3 +93,7 @@ Doublet[1]="HT:$percent2"
 Doublet[2]="TH:$percent3"
 Doublet[3]="TT:$percent4"
 done
+echo "Outcomes with doublet percentage is :"
+
+echo ${Doublet[@]}
+echo ""
